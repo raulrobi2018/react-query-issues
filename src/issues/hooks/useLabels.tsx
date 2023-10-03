@@ -10,7 +10,10 @@ const getLabels = async (): Promise<Label[]> => {
 };
 
 export const useLabels = () => {
-    const labelsQuery = useQuery(["labels"], getLabels);
+    const labelsQuery = useQuery(["labels"], getLabels, {
+        //1 hora
+        staleTime: 1000 * 60 * 60
+    });
 
     return labelsQuery;
 };
